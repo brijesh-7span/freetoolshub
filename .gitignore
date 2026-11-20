@@ -1,0 +1,36 @@
+# WordPress core
+/wp-admin/
+/wp-includes/
+
+# WordPress configuration
+/wp-config.php
+
+# Ignore all themes except custom theme
+/wp-content/themes/*
+!/wp-content/themes/freetoolshub/
+
+# Ignore all plugins except custom plugin
+/wp-content/plugins/*
+!/wp-content/plugins/freetoolshub-tools/
+
+# WordPress uploads
+/wp-content/uploads/
+
+# Cache
+/wp-content/cache/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+error_log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

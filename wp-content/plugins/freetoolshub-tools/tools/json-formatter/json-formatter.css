@@ -1,0 +1,110 @@
+/* FreeToolsHub — JSON Formatter (shared styles: assets/css/fth-tools.css) */
+
+.fth-json-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.fth-json-toolbar .fth-tool-label {
+    margin-bottom: 0;
+}
+
+.fth-json-indent {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--fth-muted);
+    font-size: 14px;
+}
+
+.fth-json-indent select {
+    padding: 6px 10px;
+    border: 1px solid var(--fth-border);
+    border-radius: 8px;
+    background: var(--fth-surface);
+    color: var(--fth-text);
+    font: inherit;
+    font-size: 14px;
+}
+
+.fth-json-indent select:focus {
+    outline: none;
+    border-color: var(--fth-accent);
+    box-shadow: 0 0 0 3px rgba(101, 88, 232, 0.15);
+}
+
+.fth-json-textarea {
+    min-height: 360px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    tab-size: 4;
+    white-space: pre;
+    overflow: auto;
+}
+
+
+/* Validation status */
+
+.fth-json-status {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin-top: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--fth-border);
+    border-left-width: 4px;
+    border-radius: 10px;
+    background: var(--fth-surface);
+    color: var(--fth-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.fth-json-status strong:empty {
+    display: none;
+}
+
+.fth-json-status.is-valid {
+    border-color: rgba(31, 138, 76, 0.35);
+    border-left-color: var(--fth-success);
+    background: rgba(31, 138, 76, 0.06);
+}
+
+.fth-json-status.is-valid strong {
+    color: var(--fth-success);
+}
+
+.fth-json-status.is-invalid {
+    border-color: rgba(192, 57, 43, 0.35);
+    border-left-color: var(--fth-error);
+    background: rgba(192, 57, 43, 0.06);
+}
+
+.fth-json-status.is-invalid strong {
+    color: var(--fth-error);
+}
+
+.fth-json-status.is-invalid span {
+    color: var(--fth-text);
+}
+
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    .fth-json-textarea {
+        min-height: 280px;
+        font-size: 13px;
+    }
+
+    .fth-json-status {
+        flex-direction: column;
+    }
+
+}

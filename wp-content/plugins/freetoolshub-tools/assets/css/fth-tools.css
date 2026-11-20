@@ -1,0 +1,144 @@
+/* FreeToolsHub — shared tool styles */
+
+.fth-tool {
+    --fth-accent: #6558e8;
+    --fth-text: #20243a;
+    --fth-muted: #686b7e;
+    --fth-border: #e5e5ef;
+    --fth-surface: #ffffff;
+    --fth-success: #1f8a4c;
+    --fth-error: #c0392b;
+
+    text-align: left;
+    color: var(--fth-text);
+}
+
+
+/* Input */
+
+.fth-tool-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.fth-tool-textarea {
+    display: block;
+    width: 100%;
+    min-height: 260px;
+    padding: 18px;
+    border: 1px solid var(--fth-border);
+    border-radius: 12px;
+    background: var(--fth-surface);
+    color: var(--fth-text);
+    font: inherit;
+    font-size: 16px;
+    line-height: 1.7;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fth-tool-textarea:focus {
+    outline: none;
+    border-color: var(--fth-accent);
+    box-shadow: 0 0 0 3px rgba(101, 88, 232, 0.15);
+}
+
+
+/* Buttons */
+
+.fth-tool-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.fth-btn {
+    padding: 12px 24px;
+    border: 1px solid var(--fth-accent);
+    border-radius: 8px;
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+a.fth-btn {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fth-btn-primary {
+    background: var(--fth-accent);
+    color: #ffffff;
+}
+
+.fth-btn-secondary {
+    background: transparent;
+    color: var(--fth-accent);
+}
+
+.fth-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(101, 88, 232, 0.2);
+}
+
+.fth-btn:focus-visible {
+    outline: 3px solid rgba(101, 88, 232, 0.35);
+    outline-offset: 2px;
+}
+
+.fth-btn:disabled,
+a.fth-btn[aria-disabled="true"] {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+a.fth-btn[aria-disabled="true"] {
+    pointer-events: none;
+}
+
+
+/* Status + notes */
+
+.fth-tool-message {
+    color: var(--fth-success);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fth-tool-message.is-error {
+    color: var(--fth-error);
+}
+
+.fth-tool-note {
+    margin-top: 18px;
+    color: var(--fth-muted);
+    font-size: 13px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    .fth-tool-textarea {
+        min-height: 200px;
+        padding: 14px;
+    }
+
+    .fth-tool-actions .fth-btn {
+        flex: 1;
+    }
+
+    .fth-tool-message {
+        width: 100%;
+        text-align: center;
+    }
+
+}

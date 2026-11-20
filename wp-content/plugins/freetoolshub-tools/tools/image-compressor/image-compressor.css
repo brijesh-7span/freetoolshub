@@ -1,0 +1,137 @@
+/* FreeToolsHub — Image Compressor (shared styles: assets/css/fth-tools.css, assets/css/fth-image.css) */
+
+/* Size comparison */
+
+.fth-ic-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.fth-ic-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 16px;
+    border: 1px solid var(--fth-border);
+    border-radius: 12px;
+    background: var(--fth-surface);
+    text-align: center;
+}
+
+.fth-ic-stat-label {
+    color: var(--fth-muted);
+    font-size: 13px;
+}
+
+.fth-ic-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.fth-ic-stat-highlight {
+    border-color: rgba(31, 138, 76, 0.35);
+    background: rgba(31, 138, 76, 0.06);
+}
+
+.fth-ic-stat-highlight .fth-ic-stat-value {
+    color: var(--fth-success);
+}
+
+.fth-ic-stat-highlight.is-negative {
+    border-color: rgba(192, 57, 43, 0.35);
+    background: rgba(192, 57, 43, 0.06);
+}
+
+.fth-ic-stat-highlight.is-negative .fth-ic-stat-value {
+    color: var(--fth-error);
+}
+
+.fth-ic-bars {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 8px;
+    padding: 14px 16px;
+    border: 1px solid var(--fth-border);
+    border-radius: 12px;
+    background: var(--fth-surface);
+}
+
+.fth-ic-bar {
+    display: grid;
+    grid-template-columns: 95px 1fr;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--fth-muted);
+}
+
+.fth-ic-bar-track {
+    height: 10px;
+    border-radius: 999px;
+    background: #efeff5;
+    overflow: hidden;
+}
+
+.fth-ic-bar-fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.fth-ic-bar-original {
+    background: #b9b4ee;
+}
+
+.fth-ic-bar-compressed {
+    background: var(--fth-accent);
+}
+
+
+/* Settings */
+
+.fth-ic-settings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+}
+
+.fth-ic-quality {
+    grid-column: 1 / -1;
+}
+
+.fth-ic-range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    color: var(--fth-muted);
+    font-size: 12px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 640px) {
+
+    .fth-ic-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fth-ic-stat-highlight {
+        grid-column: 1 / -1;
+    }
+
+    .fth-ic-stat-value {
+        font-size: 19px;
+    }
+
+    .fth-ic-settings {
+        grid-template-columns: 1fr;
+    }
+
+}

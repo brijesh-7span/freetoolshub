@@ -1,0 +1,59 @@
+/* FreeToolsHub — Word Counter (shared input/button styles: assets/css/fth-tools.css) */
+
+.fth-wc-stats {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.fth-wc-stat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 16px 10px;
+    border: 1px solid var(--fth-border);
+    border-radius: 12px;
+    background: var(--fth-surface);
+    text-align: center;
+}
+
+.fth-wc-stat-value {
+    color: var(--fth-accent);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.fth-wc-stat-label {
+    color: var(--fth-muted);
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .fth-wc-stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .fth-wc-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .fth-wc-stat-value {
+        font-size: 20px;
+    }
+
+}

@@ -1,0 +1,202 @@
+/* FreeToolsHub — QR Code Generator (shared styles: assets/css/fth-tools.css, assets/css/fth-image.css) */
+
+.fth-qr-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 420px;
+    gap: 25px;
+    align-items: start;
+}
+
+
+/* Controls */
+
+.fth-qr-controls {
+    display: grid;
+    gap: 6px;
+}
+
+.fth-qr-textarea {
+    min-height: 120px;
+}
+
+.fth-qr-counter {
+    justify-self: end;
+    color: var(--fth-muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+}
+
+.fth-qr-fieldset {
+    margin: 10px 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.fth-qr-sizes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.fth-qr-size {
+    position: relative;
+    cursor: pointer;
+}
+
+.fth-qr-size input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.fth-qr-size span {
+    display: block;
+    padding: 11px 8px;
+    border: 1px solid var(--fth-border);
+    border-radius: 10px;
+    background: var(--fth-surface);
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    transition: 0.2s ease;
+}
+
+.fth-qr-size:hover span {
+    border-color: var(--fth-accent);
+}
+
+.fth-qr-size input:checked + span {
+    border-color: var(--fth-accent);
+    background: rgba(101, 88, 232, 0.08);
+    color: var(--fth-accent);
+}
+
+.fth-qr-size input:focus-visible + span {
+    outline: 3px solid rgba(101, 88, 232, 0.35);
+    outline-offset: 2px;
+}
+
+.fth-qr-colors {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.fth-qr-color-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px 6px 6px;
+    border: 1px solid var(--fth-border);
+    border-radius: 10px;
+    background: var(--fth-surface);
+}
+
+.fth-qr-color-input input[type="color"] {
+    width: 40px;
+    height: 34px;
+    padding: 0;
+    border: 1px solid var(--fth-border);
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+}
+
+.fth-qr-color-input code {
+    color: var(--fth-text);
+    font-size: 14px;
+    background: none;
+}
+
+.fth-qr-link-btn {
+    grid-column: 1 / -1;
+    justify-self: start;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--fth-accent);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fth-qr-link-btn:hover {
+    text-decoration: underline;
+}
+
+.fth-qr-link-btn:focus-visible {
+    outline: 3px solid rgba(101, 88, 232, 0.35);
+    outline-offset: 2px;
+}
+
+.fth-qr-controls .fth-tool-message:not(:empty) {
+    margin-top: 6px;
+}
+
+
+/* Preview */
+
+.fth-qr-preview {
+    padding: 15px;
+    border: 1px solid var(--fth-border);
+    border-radius: 12px;
+    background: var(--fth-surface);
+    text-align: center;
+}
+
+.fth-qr-preview-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 388px;
+    border-radius: 8px;
+    background: #f4f4f8;
+}
+
+.fth-qr-canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+    box-shadow: 0 4px 18px rgba(32, 36, 58, 0.08);
+}
+
+.fth-qr-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 20px;
+    color: var(--fth-muted);
+    font-size: 14px;
+}
+
+.fth-qr-placeholder span {
+    font-size: 40px;
+    opacity: 0.5;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .fth-qr-layout {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .fth-qr-preview-frame {
+        min-height: 260px;
+    }
+
+    .fth-qr-colors {
+        grid-template-columns: 1fr;
+    }
+
+}

@@ -1,0 +1,187 @@
+/* FreeToolsHub — Percentage Calculator (shared styles: assets/css/fth-tools.css) */
+
+.fth-pc-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.fth-pc-card {
+    padding: 22px;
+    border: 1px solid var(--fth-border);
+    border-radius: 14px;
+    background: var(--fth-surface);
+}
+
+.fth-pc-title {
+    margin: 0 0 14px;
+    font-size: 19px;
+    line-height: 1.3;
+}
+
+.fth-pc-sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+
+/* Sentence with inline inputs */
+
+.fth-pc-sentence {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.fth-pc-field {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+
+.fth-pc-input {
+    width: 140px;
+    padding: 11px 14px;
+    border: 1px solid var(--fth-border);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--fth-text);
+    font: inherit;
+    font-size: 17px;
+    font-variant-numeric: tabular-nums;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.fth-pc-input::-webkit-outer-spin-button,
+.fth-pc-input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.fth-pc-input:focus {
+    outline: none;
+    border-color: var(--fth-accent);
+    box-shadow: 0 0 0 3px rgba(101, 88, 232, 0.15);
+}
+
+.fth-pc-field-percent .fth-pc-input {
+    width: 110px;
+    padding-right: 32px;
+}
+
+.fth-pc-unit {
+    position: absolute;
+    right: 12px;
+    color: var(--fth-muted);
+    pointer-events: none;
+}
+
+
+/* Result */
+
+.fth-pc-result {
+    display: grid;
+    gap: 2px;
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(101, 88, 232, 0.06);
+}
+
+.fth-pc-result-label {
+    color: var(--fth-muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.fth-pc-result-value {
+    color: var(--fth-accent);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.fth-pc-formula {
+    min-height: 1.4em;
+    color: var(--fth-muted);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.fth-pc-card.is-up .fth-pc-result-value {
+    color: var(--fth-success);
+}
+
+.fth-pc-card.is-down .fth-pc-result-value {
+    color: var(--fth-error);
+}
+
+.fth-pc-card.is-error .fth-pc-formula {
+    color: var(--fth-error);
+    font-weight: 600;
+}
+
+
+/* Actions */
+
+.fth-pc-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.fth-pc-btn {
+    padding: 9px 18px;
+    font-size: 14px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 480px) {
+
+    .fth-pc-card {
+        padding: 16px;
+    }
+
+    .fth-pc-sentence {
+        font-size: 16px;
+    }
+
+    .fth-pc-field {
+        flex: 1 1 120px;
+    }
+
+    .fth-pc-input,
+    .fth-pc-field-percent .fth-pc-input {
+        width: 100%;
+    }
+
+    .fth-pc-result-value {
+        font-size: 24px;
+    }
+
+    .fth-pc-actions .fth-pc-btn {
+        flex: 1;
+    }
+
+    .fth-pc-actions .fth-tool-message {
+        width: 100%;
+        text-align: center;
+    }
+
+}

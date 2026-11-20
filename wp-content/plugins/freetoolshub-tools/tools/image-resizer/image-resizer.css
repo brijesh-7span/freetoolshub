@@ -1,0 +1,79 @@
+/* FreeToolsHub — Image Resizer (shared styles: assets/css/fth-tools.css, assets/css/fth-image.css) */
+
+.fth-ir-dimensions {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.fth-ir-dimensions .fth-img-field {
+    flex: 1;
+}
+
+.fth-ir-times {
+    padding-bottom: 12px;
+    color: var(--fth-muted);
+    font-size: 20px;
+}
+
+.fth-ir-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fth-ir-checkbox input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--fth-accent);
+}
+
+.fth-ir-presets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.fth-ir-preset {
+    padding: 8px 16px;
+    border: 1px solid var(--fth-border);
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--fth-text);
+    font: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.fth-ir-preset:hover {
+    border-color: var(--fth-accent);
+    color: var(--fth-accent);
+}
+
+.fth-ir-preset:focus-visible {
+    outline: 3px solid rgba(101, 88, 232, 0.35);
+    outline-offset: 2px;
+}
+
+.fth-ir-output {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+}
+
+
+/* Responsive */
+
+@media (max-width: 640px) {
+
+    .fth-ir-output {
+        grid-template-columns: 1fr;
+    }
+
+}

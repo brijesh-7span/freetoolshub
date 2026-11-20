@@ -1,0 +1,53 @@
+/* FreeToolsHub — Text Case Converter (shared input/button styles: assets/css/fth-tools.css) */
+
+.fth-tc-cases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.fth-tc-case-btn {
+    padding: 14px 12px;
+    border: 1px solid var(--fth-border);
+    border-radius: 10px;
+    background: var(--fth-surface);
+    color: var(--fth-text);
+    font: inherit;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.fth-tc-case-btn:hover:not(:disabled) {
+    border-color: var(--fth-accent);
+    color: var(--fth-accent);
+}
+
+.fth-tc-case-btn:focus-visible {
+    outline: 3px solid rgba(101, 88, 232, 0.35);
+    outline-offset: 2px;
+}
+
+.fth-tc-case-btn[aria-pressed="true"] {
+    border-color: var(--fth-accent);
+    background: rgba(101, 88, 232, 0.08);
+    color: var(--fth-accent);
+}
+
+.fth-tc-case-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .fth-tc-cases {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}

@@ -1,0 +1,70 @@
+# BEGIN FreeToolsHub Performance & Security
+# Every rule is wrapped in <IfModule> so a missing Apache module can't break the site.
+
+# --- Security ---
+
+# No directory listings (e.g. /wp-content/plugins/).
+Options -Indexes
+
+# Block direct access to sensitive files, backups/logs and hidden files (.git, .env…).
+# xmlrpc.php is also disabled in the FreeToolsHub Tools plugin; remove it here if you
+# ever need Jetpack or the WordPress mobile app.
+<IfModule mod_authz_core.c>
+    <FilesMatch "^(wp-config\.php|wp-config-sample\.php|readme\.html|license\.txt|xmlrpc\.php)$">
+        Require all denied
+    </FilesMatch>
+    <FilesMatch "\.(log|sql|bak|old|orig|swp|ini|sh)$">
+        Require all denied
+    </FilesMatch>
+    <FilesMatch "^\.">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+# (WordPress pages already send this from PHP; setifempty avoids a duplicate.)
+<IfModule mod_headers.c>
+    Header setifempty X-Content-Type-Options "nosniff"
+</IfModule>
+
+# --- Browser caching ---
+# CSS, JS and fonts carry a ?ver= that changes whenever the file changes,
+# so they can be cached for a year. Images are cached for 30 days.
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|mjs|woff2?|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    <FilesMatch "\.(png|jpe?g|gif|webp|avif|svg|ico)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+</IfModule>
+
+# --- Compression (text files shrink ~70%) ---
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json application/ld+json image/svg+xml
+</IfModule>
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/xml application/javascript text/javascript application/json application/ld+json image/svg+xml
+</IfModule>
+
+# Correct type for self-hosted fonts.
+<IfModule mod_mime.c>
+    AddType font/woff2 .woff2
+</IfModule>
+
+# END FreeToolsHub Performance & Security
+
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /freetoolshub/
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /freetoolshub/index.php [L]
+</IfModule>
+
+# END WordPress
