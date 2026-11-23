@@ -1,0 +1,353 @@
+/* FreeToolsHub — International Money Transfer Cost Calculator (shared styles: assets/css/fth-tools.css) */
+
+.fth-mt-card {
+    padding: 22px;
+    border: 1px solid var(--fth-border);
+    border-radius: 14px;
+    background: var(--fth-surface);
+}
+
+.fth-mt-title {
+    margin: 0 0 16px;
+    font-size: 19px;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+}
+
+
+/* Fields */
+
+.fth-mt-field {
+    display: grid;
+    gap: 6px;
+    min-width: 0;
+    margin-bottom: 14px;
+}
+
+.fth-mt-label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.fth-mt-optional {
+    color: var(--fth-muted);
+    font-weight: 400;
+}
+
+.fth-mt-input {
+    width: 100%;
+    min-width: 0;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--fth-border);
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--fth-text);
+    font: inherit;
+    font-size: 16px;
+    font-variant-numeric: tabular-nums;
+}
+
+.fth-mt-input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+.fth-mt-input::-webkit-outer-spin-button,
+.fth-mt-input::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+.fth-mt-input:focus {
+    outline: none;
+    border-color: var(--fth-accent);
+    box-shadow: 0 0 0 3px rgba(101, 88, 232, 0.15);
+}
+
+.fth-mt-select {
+    cursor: pointer;
+}
+
+/* Number input with its unit (USD, %) inside on the right */
+.fth-mt-number {
+    position: relative;
+    display: flex;
+    flex: 1 1 140px;
+    align-items: center;
+    min-width: 0;
+}
+
+.fth-mt-number .fth-mt-input {
+    padding-right: 56px;
+}
+
+.fth-mt-unit {
+    position: absolute;
+    right: 12px;
+    color: var(--fth-muted);
+    font-size: 14px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.fth-mt-rate-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+
+.fth-mt-rate-prefix {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.fth-mt-field-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.fth-mt-hint {
+    min-height: 1.4em;
+    color: var(--fth-muted);
+    font-size: 13px;
+}
+
+.fth-mt-hint.is-error {
+    color: var(--fth-error);
+    font-weight: 600;
+}
+
+
+/* Transfer details */
+
+.fth-mt-currency-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: end;
+    gap: 12px;
+}
+
+.fth-mt-swap {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 16px; /* centred on the 48px inputs (field margin is 14px) */
+    border: 1px solid var(--fth-border);
+    border-radius: 50%;
+    background: #ffffff;
+    color: var(--fth-accent);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.fth-mt-swap:hover {
+    border-color: var(--fth-accent);
+    transform: rotate(180deg);
+}
+
+.fth-mt-swap:focus-visible {
+    outline: 3px solid rgba(101, 88, 232, 0.35);
+    outline-offset: 2px;
+}
+
+.fth-mt-mid {
+    margin-bottom: 0;
+}
+
+.fth-mt-fetch {
+    height: 48px;
+    padding: 0 16px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+
+/* Providers */
+
+.fth-mt-providers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.fth-mt-provider {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fth-mt-provider.is-best {
+    border-color: var(--fth-success);
+    box-shadow: 0 0 0 1px var(--fth-success);
+}
+
+.fth-mt-provider-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.fth-mt-badge {
+    flex-shrink: 0;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: var(--fth-success);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.fth-mt-badge[hidden] {
+    display: none;
+}
+
+
+/* Result */
+
+.fth-mt-result {
+    display: grid;
+    gap: 2px;
+    margin-top: 6px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    background: rgba(101, 88, 232, 0.06);
+}
+
+.fth-mt-result-label {
+    color: var(--fth-muted);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.fth-mt-result-value {
+    color: var(--fth-accent);
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.25;
+    font-variant-numeric: tabular-nums;
+    overflow-wrap: anywhere;
+}
+
+.fth-mt-provider.is-best .fth-mt-result-value {
+    color: var(--fth-success);
+}
+
+.fth-mt-error:empty {
+    display: none;
+}
+
+.fth-mt-error {
+    color: var(--fth-error);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.fth-mt-breakdown {
+    display: grid;
+    gap: 6px;
+    margin: 10px 0 0;
+    padding-top: 10px;
+    border-top: 1px solid rgba(101, 88, 232, 0.15);
+    font-size: 14px;
+}
+
+.fth-mt-breakdown[hidden],
+.fth-mt-breakdown div[hidden] {
+    display: none;
+}
+
+.fth-mt-breakdown div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2px 12px;
+}
+
+.fth-mt-breakdown dt {
+    color: var(--fth-muted);
+}
+
+.fth-mt-breakdown dd {
+    margin: 0;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.fth-mt-total-cost dt,
+.fth-mt-total-cost dd {
+    color: var(--fth-text);
+    font-weight: 700;
+}
+
+
+/* Comparison */
+
+.fth-mt-compare {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border-left: 4px solid var(--fth-success);
+    border-radius: 8px;
+    background: rgba(31, 138, 76, 0.08);
+    font-weight: 600;
+}
+
+.fth-mt-compare[hidden] {
+    display: none;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .fth-mt-providers {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    .fth-mt-currency-row {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    }
+
+    .fth-mt-field-amount {
+        grid-column: 1 / -1;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .fth-mt-card {
+        padding: 16px;
+    }
+
+    .fth-mt-field-pair {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .fth-mt-fetch {
+        flex: 1 1 100%;
+    }
+
+    .fth-mt-result-value {
+        font-size: 24px;
+    }
+
+    .fth-mt-swap {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 18px;
+    }
+
+}

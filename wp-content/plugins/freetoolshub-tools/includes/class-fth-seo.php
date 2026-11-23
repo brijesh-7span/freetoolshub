@@ -360,6 +360,31 @@ class FTH_SEO
             return array($home, $tools);
         }
 
+        // Blog: Home › Blog (› Post)
+        $blog_page = (int) get_option('page_for_posts');
+        $blog      = $blog_page ? array('name' => get_the_title($blog_page), 'url' => get_permalink($blog_page)) : null;
+
+        if (is_home() && $blog) {
+            return array($home, $blog);
+        }
+
+        if (is_singular('post')) {
+            $trail   = $blog ? array($home, $blog) : array($home);
+            $trail[] = array('name' => get_the_title(get_queried_object_id()), 'url' => get_permalink(get_queried_object_id()));
+
+            return $trail;
+        }
+
+        if ((is_category() || is_tag()) && $blog) {
+            $term = get_queried_object();
+
+            return array($home, $blog, array('name' => $term->name, 'url' => get_term_link($term)));
+        }
+
+        if (is_page() && !is_front_page()) {
+            return array($home, array('name' => get_the_title(get_queried_object_id()), 'url' => get_permalink(get_queried_object_id())));
+        }
+
         return array();
     }
 

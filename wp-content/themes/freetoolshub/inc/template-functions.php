@@ -107,3 +107,17 @@ function fth_directory_status_text($visible, $total)
     /* translators: 1: number of matching tools, 2: total number of tools */
     return sprintf(_n('Showing %1$d of %2$d tool', 'Showing %1$d of %2$d tools', $total, 'freetoolshub'), $visible, $total);
 }
+
+
+/**
+ * Estimated reading time for a post, e.g. "4 min read" (at ~220 words per minute).
+ */
+function fth_reading_time($post = null)
+{
+
+    $words   = str_word_count(wp_strip_all_tags(get_post_field('post_content', $post)));
+    $minutes = max(1, (int) ceil($words / 220));
+
+    /* translators: %d: number of minutes */
+    return sprintf(_n('%d min read', '%d min read', $minutes, 'freetoolshub'), $minutes);
+}

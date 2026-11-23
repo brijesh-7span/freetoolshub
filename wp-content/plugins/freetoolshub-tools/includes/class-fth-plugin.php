@@ -50,6 +50,8 @@ class FTH_Plugin
         require_once FTH_PLUGIN_PATH . 'includes/class-fth-seo.php';
 
         require_once FTH_PLUGIN_PATH . 'includes/class-fth-hardening.php';
+
+        require_once FTH_PLUGIN_PATH . 'includes/class-fth-contact-form.php';
     }
 
     /**
@@ -67,5 +69,7 @@ class FTH_Plugin
         new FTH_SEO();
 
         new FTH_Hardening();
+
+        new FTH_Contact_Form();
     }
 }

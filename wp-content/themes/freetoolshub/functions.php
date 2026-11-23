@@ -19,6 +19,9 @@ function fth_theme_setup()
     // Custom logo
     add_theme_support('custom-logo');
 
+    // Page excerpts are shown as the intro under the page title (page.php)
+    add_post_type_support('page', 'excerpt');
+
     // HTML5 support
     add_theme_support('html5', array(
         'search-form',

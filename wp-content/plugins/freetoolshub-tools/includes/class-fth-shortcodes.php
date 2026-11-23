@@ -13,14 +13,15 @@ class FTH_Shortcodes
      * Each tool lives in tools/{identifier}/ with {identifier}.php, .js and .css.
      */
     const TOOLS = array(
-        'word-counter'          => 'fth_word_counter',
-        'text-case-converter'   => 'fth_text_case_converter',
-        'image-resizer'         => 'fth_image_resizer',
-        'image-compressor'      => 'fth_image_compressor',
-        'qr-generator'          => 'fth_qr_generator',
-        'json-formatter'        => 'fth_json_formatter',
-        'percentage-calculator' => 'fth_percentage_calculator',
-        'age-calculator'        => 'fth_age_calculator',
+        'word-counter'              => 'fth_word_counter',
+        'text-case-converter'       => 'fth_text_case_converter',
+        'image-resizer'             => 'fth_image_resizer',
+        'image-compressor'          => 'fth_image_compressor',
+        'qr-generator'              => 'fth_qr_generator',
+        'json-formatter'            => 'fth_json_formatter',
+        'percentage-calculator'     => 'fth_percentage_calculator',
+        'age-calculator'            => 'fth_age_calculator',
+        'money-transfer-calculator' => 'fth_money_transfer_calculator',
     );
 
     /**
@@ -202,6 +203,34 @@ class FTH_Shortcodes
             'copied'         => __('Result copied!', 'freetoolshub-tools'),
             'copyFailed'     => __('Could not copy — please copy manually.', 'freetoolshub-tools'),
             'cleared'        => __('Cleared.', 'freetoolshub-tools'),
+        ));
+
+        wp_localize_script('fth-money-transfer-calculator', 'fthMoneyTransfer', array(
+            'amountInvalid'   => __('Enter the amount you are sending.', 'freetoolshub-tools'),
+            'rateInvalid'     => __('Enter the exchange rate this provider offers.', 'freetoolshub-tools'),
+            'percentInvalid'  => __('The percentage fee must be between 0 and 100.', 'freetoolshub-tools'),
+            'feesTooHigh'     => __('The fees are more than the amount being sent.', 'freetoolshub-tools'),
+            'nothingLeft'     => __('The receiving fee is more than the converted amount.', 'freetoolshub-tools'),
+            /* translators: %s: percentage, e.g. 0.5% */
+            'betterThanMid'   => __('%s better than mid-market', 'freetoolshub-tools'),
+            /* translators: 1: provider name, 2: extra amount received, 3: amount paid */
+            'best'            => __('%1$s is the better deal: the recipient gets %2$s more for every %3$s you pay.', 'freetoolshub-tools'),
+            'tie'             => __('Both providers give the recipient the same amount.', 'freetoolshub-tools'),
+            'fetching'        => __('Getting today\'s rate…', 'freetoolshub-tools'),
+            /* translators: %s: date of the rate */
+            'fetched'         => __('European Central Bank reference rate for %s.', 'freetoolshub-tools'),
+            'pegged'          => __('Official fixed rate.', 'freetoolshub-tools'),
+            'fetchFailed'     => __('Couldn\'t load today\'s rate. Check your connection, or type the rate in yourself.', 'freetoolshub-tools'),
+            /* translators: %s: currency code */
+            'noLiveRate'      => __('A live rate isn\'t available for %s. Type the rate in yourself — you can find it on Google or XE.com.', 'freetoolshub-tools'),
+            /* translators: %s: currency pair, e.g. USD → INR */
+            'currencyChanged' => __('Currencies changed, so the rates were cleared. Enter the rates for %s.', 'freetoolshub-tools'),
+            'copied'          => __('Results copied!', 'freetoolshub-tools'),
+            'copyFailed'      => __('Could not copy — please copy manually.', 'freetoolshub-tools'),
+            'cleared'         => __('Cleared.', 'freetoolshub-tools'),
+            'summaryPaid'     => __('You pay', 'freetoolshub-tools'),
+            'summaryGets'     => __('Recipient gets', 'freetoolshub-tools'),
+            'summaryCost'     => __('Total cost', 'freetoolshub-tools'),
         ));
 
         wp_localize_script('fth-json-formatter', 'fthJsonFormatter', array(
